@@ -1,124 +1,167 @@
 # 📚 Research Paper Recommendation System
 
-A Machine Learning project that recommends research papers based on their textual content using **Natural Language Processing (NLP)** and **Content-Based Filtering**.
-
-The system analyzes research paper abstracts and titles, converts them into numerical vectors, and recommends the most similar papers using **Cosine Similarity**.
-
----
-## 🎥 Project
+### An NLP-Powered Research Paper Recommendation System using Machine Learning and Streamlit
 
 <p align="center">
-  <img src="recommendation.gif" alt="Project Demo" width="900">
+  <img src="recommendation.gif" alt="Project Demo" width="100%">
 </p>
+
+<p align="center">
+
+![Python](https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge&logo=python)
+![Streamlit](https://img.shields.io/badge/Streamlit-Web%20App-FF4B4B?style=for-the-badge&logo=streamlit)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Machine%20Learning-F7931E?style=for-the-badge&logo=scikitlearn)
+![NLP](https://img.shields.io/badge/NLP-CountVectorizer-success?style=for-the-badge)
+
+</p>
+
 ---
 
-## 🚀 Features
+## 📌 Overview
 
-- 📄 Content-Based Research Paper Recommendation
-- 🧹 NLP Text Preprocessing
-- 🔤 CountVectorizer for Feature Extraction
-- 📊 Cosine Similarity for Recommendations
-- 💾 Pickle Support for Model Saving
-- ⚡ Fast Recommendation Generation
+The **Research Paper Recommendation System** is a Machine Learning and Natural Language Processing (NLP) project that helps users discover research papers related to their interests. It uses **Content-Based Filtering** to recommend papers based on textual similarity.
+
+The application features an interactive **Streamlit** web interface where users can search for papers using titles or keywords, explore paper previews, and receive personalized recommendations in real time.
+
+The recommendation engine is powered by **CountVectorizer** and **Cosine Similarity**, enabling fast and accurate retrieval of related research papers from the dataset.
+
+---
+
+## ✨ Features
+
+### 🤖 Machine Learning
+
+- Content-Based Recommendation System
+- NLP Text Preprocessing
+- CountVectorizer Feature Extraction
+- Cosine Similarity Recommendation Engine
+- Precomputed Similarity Matrix
+- Fast Recommendation Retrieval
+
+### 🌐 Streamlit Web Application
+
+- Interactive User Interface
+- Search by Paper Title
+- Search by Keywords
+- Paper Preview
+- Top-N Similar Paper Recommendations
+- Adjustable Number of Recommendations
+- Cached Data Loading for Better Performance
+- Clean and Responsive Layout
+
+---
+
+## 🏗️ System Architecture
+
+```text
+                 Research Papers Dataset
+                          │
+                          ▼
+                Text Preprocessing (NLP)
+                          │
+                          ▼
+                 CountVectorizer Model
+                          │
+                          ▼
+                  Feature Vector Matrix
+                          │
+                          ▼
+                 Cosine Similarity Matrix
+                          │
+          ┌───────────────┴───────────────┐
+          ▼                               ▼
+      paper.pkl                    similarity.pkl
+          │                               │
+          └───────────────┬───────────────┘
+                          ▼
+               Streamlit Recommendation App
+                          │
+                          ▼
+      Search → Select Paper → View Recommendations
+```
 
 ---
 
 ## 🛠️ Tech Stack
 
-- Python
-- Pandas
-- NumPy
-- Scikit-learn
-- NLTK
-- CountVectorizer
-- Cosine Similarity
-- Pickle
-- Jupyter Notebook
+| Category | Technology |
+|----------|------------|
+| Programming Language | Python |
+| Frontend | Streamlit |
+| Machine Learning | Scikit-learn |
+| NLP | CountVectorizer |
+| Data Processing | Pandas, NumPy |
+| Similarity Metric | Cosine Similarity |
+| Model Storage | Pickle |
+| Development | Jupyter Notebook |
 
 ---
 
-## 📂 Dataset
+## 📂 Project Structure
 
-This project uses the **NIPS Research Papers Dataset**, which contains:
-
-- Research Paper Title
-- Abstract
-- Full Paper Text
-- Publication Year
-- Event Type
-
----
-
-## 📁 Project Structure
-
-```
+```text
 Research-Paper-Recommendation-System/
 │
+├── app.py
 ├── researchpaper.ipynb
 ├── paper.pkl
+├── similarity.pkl
+├── recommendation.gif
+├── requirements.txt
 ├── README.md
-└── requirements.txt
+│
+├── images/
+│   ├── home.png
+│   └── recommendation.png
+│
+└── dataset/
 ```
 
 ---
 
 ## ⚙️ Installation
 
-Clone the repository:
+Clone the repository
 
 ```bash
-git clone https://github.com/your-username/Research-Paper-Recommendation-System.git
+git clone https://github.com/yourusername/Research-Paper-Recommendation-System.git
 ```
 
-Go to the project directory:
+Navigate to the project folder
 
 ```bash
 cd Research-Paper-Recommendation-System
 ```
 
-Install dependencies:
+Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Launch Jupyter Notebook:
+Run the Streamlit application
 
 ```bash
-jupyter notebook
+streamlit run app.py
+```
+
+Open your browser and visit
+
+```
+http://localhost:8501
 ```
 
 ---
 
-## 🔄 Workflow
+## 🚀 Application Workflow
 
-1. Load the dataset
-2. Perform text preprocessing
-3. Remove stopwords and punctuation
-4. Apply lemmatization
-5. Convert text into vectors using CountVectorizer
-6. Compute Cosine Similarity
-7. Recommend the most relevant research papers
-
----
-
-## 💡 Example
-
-### Input
-
-```
-Deep Learning
-```
-
-### Output
-
-```
-1. Deep Learning for Computer Vision
-2. Deep Neural Networks for Image Classification
-3. Representation Learning using Deep Models
-4. Convolutional Neural Networks Explained
-5. Advances in Deep Learning
-```
+1. Load the processed research paper dataset.
+2. Load the precomputed similarity matrix.
+3. Search papers by title or keywords.
+4. Select a research paper from the search results.
+5. Display a preview of the selected paper.
+6. Retrieve similarity scores from the similarity matrix.
+7. Display the Top-N recommended research papers.
 
 ---
 
@@ -126,37 +169,11 @@ Deep Learning
 
 - TF-IDF Vectorizer
 - Sentence Transformers (BERT)
-- FAISS for Large-Scale Search
-- Streamlit Web Application
-- PDF Recommendation Support
-- Semantic Search using Embeddings
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome.
-
-1. Fork this repository
-2. Create a new branch
-3. Commit your changes
-4. Push to your branch
-5. Open a Pull Request
-
----
-
-## 📜 License
-
-This project is released under the MIT License.
-
----
-
-## 👨‍💻 Author
-
-**Malkit Choudhary**
-
-- Data Science Enthusiast
-- Machine Learning Developer
-- Python Programmer
-
-⭐ If you found this project useful, please consider giving it a **star**.
+- Semantic Search
+- FAISS Vector Database
+- PDF Upload & Recommendation
+- Author-Based Recommendation
+- Conference-Based Filtering
+- Citation-Based Recommendation
+- LLM-Powered Paper Summarization
+- Bookmark Favorite Papers
